@@ -35,6 +35,9 @@
             this.buttonSTAT = new System.Windows.Forms.Button();
             this.buttonQUIT = new System.Windows.Forms.Button();
             this.buttonLIST = new System.Windows.Forms.Button();
+            this.numRetr = new System.Windows.Forms.NumericUpDown();
+            this.retrButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.numRetr)).BeginInit();
             this.SuspendLayout();
             // 
             // listBoxAffichage
@@ -110,11 +113,40 @@
             this.buttonLIST.UseVisualStyleBackColor = true;
             this.buttonLIST.Click += new System.EventHandler(this.ButtonLIST_Click);
             // 
+            // numRetr
+            // 
+            this.numRetr.Location = new System.Drawing.Point(755, 522);
+            this.numRetr.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numRetr.Name = "numRetr";
+            this.numRetr.Size = new System.Drawing.Size(59, 20);
+            this.numRetr.TabIndex = 13;
+            this.numRetr.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // retrButton
+            // 
+            this.retrButton.Location = new System.Drawing.Point(661, 510);
+            this.retrButton.Name = "retrButton";
+            this.retrButton.Size = new System.Drawing.Size(77, 40);
+            this.retrButton.TabIndex = 14;
+            this.retrButton.Text = "RETR";
+            this.retrButton.UseVisualStyleBackColor = true;
+            this.retrButton.Click += new System.EventHandler(this.retrButton_Click);
+            // 
             // ClientPOP3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1216, 603);
+            this.Controls.Add(this.retrButton);
+            this.Controls.Add(this.numRetr);
             this.Controls.Add(this.buttonLIST);
             this.Controls.Add(this.buttonQUIT);
             this.Controls.Add(this.buttonSTAT);
@@ -125,6 +157,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ClientPOP3";
             this.Text = "ClientPOP3";
+            ((System.ComponentModel.ISupportInitialize)(this.numRetr)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,6 +172,8 @@
         private System.Windows.Forms.Button buttonSTAT;
         private System.Windows.Forms.Button buttonQUIT;
         private System.Windows.Forms.Button buttonLIST;
+        private System.Windows.Forms.NumericUpDown numRetr;
+        private System.Windows.Forms.Button retrButton;
     }
 }
 

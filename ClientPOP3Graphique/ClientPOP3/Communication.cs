@@ -181,28 +181,51 @@ namespace ClientPOP3
         /* Récupère et affiche la liste des messages */
         public static void List()
         {
-            //// *** BLOC A DECOMMENTER  : Ctrl+e puis u  ***
-            //string ligne, tampon;
-            //tampon = "LIST";
-            //EcrireLigne(tampon);
-            ///* réception de +OK .... */
-            //ligne = LireLigne();
-            //if (!ligne[0].Equals('+'))
-            //{
-            //    MessageBox.Show("ERR : LIST a échoué");
-            //}
-            //else
-            //{
-            //    /* lecture liste ligne par ligne jusqu'au "." final seul sur une ligne */
-            //    ligne = LireLigne();
-            //    while (!ligne.Equals("."))
-            //    {
-            //        /*** A COMPLETER  
-            //         * - afficher la ligne pour l'utilisateur
-            //         * - lire la ligne suivante
-            //         * ***/
-            //    }
-            //}
+            // *** BLOC A DECOMMENTER  : Ctrl+e puis u  ***
+            string ligne, tampon;
+            tampon = "LIST";
+            EcrireLigne(tampon);
+            /* réception de +OK .... */
+            ligne = LireLigne();
+            if (!ligne[0].Equals('+'))
+            {
+                MessageBox.Show("ERR : LIST a échoué");
+            }
+            else
+            {
+                /* lecture liste ligne par ligne jusqu'au "." final seul sur une ligne */
+                ligne = LireLigne();
+                while (!ligne.Equals("."))
+                {
+                    string[] values = ligne.Split(' '); 
+                    clientPOP3.WriteAffichage("Le message " + values[0] + " est de taille " + values[1] + " octets");
+                    ligne = LireLigne();
+                }
+            }
+        }
+
+        public static void Retr(int num)
+        {
+            string ligne;
+            EcrireLigne("RETR " + num);
+            ligne = LireLigne();
+            if (!ligne[0].Equals('+'))
+            {
+                MessageBox.Show("ERR : LIST a échoué");
+            }
+            else
+            {
+                ligne = LireLigne();
+                while (!ligne.Equals("."))
+                {
+                    if (ligne.Substring(0, 2).Equals(".."))
+                    {
+                        ligne = ligne.Substring(1, ligne.Length);
+                    }
+                    clientPOP3.WriteAffichage(ligne);
+                    ligne = LireLigne();
+                }
+            }
         }
 
     }
