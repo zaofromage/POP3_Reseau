@@ -67,7 +67,7 @@ namespace ClientPOP3
 
         private void retrButton_Click(object sender, EventArgs e)
         {
-            Communication.Retr((int)numRetr.Value);
+            Communication.Retr((int)numRetr.Value, true);
         }
     }
 }

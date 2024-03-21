@@ -195,35 +195,78 @@ namespace ClientPOP3
             {
                 /* lecture liste ligne par ligne jusqu'au "." final seul sur une ligne */
                 ligne = LireLigne();
+                int numberOfMessage = 0;
+
                 while (!ligne.Equals("."))
                 {
-                    string[] values = ligne.Split(' '); 
-                    clientPOP3.WriteAffichage("Le message " + values[0] + " est de taille " + values[1] + " octets");
+                    string[] values = ligne.Split(' ');
+                    numberOfMessage = int.Parse(values[0]);
                     ligne = LireLigne();
+                }
+
+                for (int i = 1; i <= numberOfMessage; i++)
+                {
+                    Retr(i, false);
                 }
             }
         }
 
-        public static void Retr(int num)
+        public static void Retr(int num, bool afficherMessage)
         {
             string ligne;
             EcrireLigne("RETR " + num);
             ligne = LireLigne();
             if (!ligne[0].Equals('+'))
             {
-                MessageBox.Show("ERR : LIST a échoué");
+                MessageBox.Show("ERR : RETR a échoué");
             }
             else
             {
+                clientPOP3.WriteAffichage("----------");
+                clientPOP3.WriteAffichage("Message: " + num);
                 ligne = LireLigne();
+                bool enMessage = false;
                 while (!ligne.Equals("."))
                 {
-                    if (ligne.Substring(0, 2).Equals(".."))
+                    bool aEcrire = false;
+
+
+                    if (ligne.Length > 5 && ligne.Substring(0, 5).Equals("From:"))
                     {
-                        ligne = ligne.Substring(1, ligne.Length);
+                        ligne = "Expediteur: " + ligne.Substring(6, ligne.Length - 6);
+                        aEcrire = true;
                     }
-                    clientPOP3.WriteAffichage(ligne);
+
+                    if (ligne.Length > 8 && ligne.Substring(0, 8).Equals("Subject:"))
+                    {
+                        ligne = "Sujet: " + ligne.Substring(9, ligne.Length - 9);
+                        aEcrire = true;
+                    }
+
+                    if (ligne.Length > 5 && ligne.Substring(0, 5).Equals("Date:"))
+                    {
+                        ligne = "Ecrit le: " + ligne.Substring(6, ligne.Length - 6);
+                        aEcrire = true;
+                    }
+
+                    if (ligne.Length == 0)
+                    {
+                        if (!enMessage)
+                            clientPOP3.WriteAffichage("----------");
+                        enMessage = true;
+                    }
+
+                    if (ligne.Length > 1 && ligne.Substring(0, 2).Equals(".."))
+                    {
+                        ligne = ligne.Substring(1, ligne.Length - 1);
+                    }
+
+                    if(aEcrire || (enMessage && afficherMessage))
+                        clientPOP3.WriteAffichage(ligne);
+
+
                     ligne = LireLigne();
+
                 }
             }
         }
