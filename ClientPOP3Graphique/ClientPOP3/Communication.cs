@@ -206,7 +206,7 @@ namespace ClientPOP3
 
                 for (int i = 1; i <= numberOfMessage; i++)
                 {
-                    Retr(i, false);
+                    clientPOP3.WriteAffichage("Message " + i);
                 }
             }
         }
@@ -222,8 +222,7 @@ namespace ClientPOP3
             }
             else
             {
-                clientPOP3.WriteAffichage("----------");
-                clientPOP3.WriteAffichage("Message: " + num);
+                clientPOP3.WriteMessage("Message: " + num);
                 ligne = LireLigne();
                 bool enMessage = false;
                 while (!ligne.Equals("."))
@@ -252,7 +251,7 @@ namespace ClientPOP3
                     if (ligne.Length == 0)
                     {
                         if (!enMessage)
-                            clientPOP3.WriteAffichage("----------");
+                            clientPOP3.WriteMessage("----------");
                         enMessage = true;
                     }
 
@@ -262,7 +261,7 @@ namespace ClientPOP3
                     }
 
                     if(aEcrire || (enMessage && afficherMessage))
-                        clientPOP3.WriteAffichage(ligne);
+                        clientPOP3.WriteMessage(ligne);
 
 
                     ligne = LireLigne();

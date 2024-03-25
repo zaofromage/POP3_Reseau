@@ -35,13 +35,12 @@
             this.buttonSTAT = new System.Windows.Forms.Button();
             this.buttonQUIT = new System.Windows.Forms.Button();
             this.buttonLIST = new System.Windows.Forms.Button();
-            this.numRetr = new System.Windows.Forms.NumericUpDown();
-            this.retrButton = new System.Windows.Forms.Button();
             this.checkBoxDate = new System.Windows.Forms.CheckBox();
             this.checkBoxExpediteur = new System.Windows.Forms.CheckBox();
             this.checkBoxSujet = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numRetr)).BeginInit();
+            this.decoButton = new System.Windows.Forms.Button();
+            this.displayMessage = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // listBoxAffichage
@@ -50,8 +49,9 @@
             this.listBoxAffichage.Location = new System.Drawing.Point(24, 38);
             this.listBoxAffichage.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxAffichage.Name = "listBoxAffichage";
-            this.listBoxAffichage.Size = new System.Drawing.Size(649, 433);
+            this.listBoxAffichage.Size = new System.Drawing.Size(196, 433);
             this.listBoxAffichage.TabIndex = 0;
+            this.listBoxAffichage.SelectedIndexChanged += new System.EventHandler(this.listBoxAffichage_SelectedIndexChanged);
             // 
             // labelAffichage
             // 
@@ -117,37 +117,10 @@
             this.buttonLIST.UseVisualStyleBackColor = true;
             this.buttonLIST.Click += new System.EventHandler(this.ButtonLIST_Click);
             // 
-            // numRetr
-            // 
-            this.numRetr.Location = new System.Drawing.Point(755, 522);
-            this.numRetr.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numRetr.Name = "numRetr";
-            this.numRetr.Size = new System.Drawing.Size(59, 20);
-            this.numRetr.TabIndex = 13;
-            this.numRetr.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // retrButton
-            // 
-            this.retrButton.Location = new System.Drawing.Point(661, 510);
-            this.retrButton.Name = "retrButton";
-            this.retrButton.Size = new System.Drawing.Size(77, 40);
-            this.retrButton.TabIndex = 14;
-            this.retrButton.Text = "RETR";
-            this.retrButton.UseVisualStyleBackColor = true;
-            this.retrButton.Click += new System.EventHandler(this.retrButton_Click);
-            // 
             // checkBoxDate
             // 
             this.checkBoxDate.AutoSize = true;
-            this.checkBoxDate.Location = new System.Drawing.Point(542, 504);
+            this.checkBoxDate.Location = new System.Drawing.Point(737, 504);
             this.checkBoxDate.Name = "checkBoxDate";
             this.checkBoxDate.Size = new System.Drawing.Size(49, 17);
             this.checkBoxDate.TabIndex = 15;
@@ -157,7 +130,7 @@
             // checkBoxExpediteur
             // 
             this.checkBoxExpediteur.AutoSize = true;
-            this.checkBoxExpediteur.Location = new System.Drawing.Point(542, 524);
+            this.checkBoxExpediteur.Location = new System.Drawing.Point(737, 524);
             this.checkBoxExpediteur.Name = "checkBoxExpediteur";
             this.checkBoxExpediteur.Size = new System.Drawing.Size(76, 17);
             this.checkBoxExpediteur.TabIndex = 16;
@@ -167,7 +140,7 @@
             // checkBoxSujet
             // 
             this.checkBoxSujet.AutoSize = true;
-            this.checkBoxSujet.Location = new System.Drawing.Point(542, 547);
+            this.checkBoxSujet.Location = new System.Drawing.Point(737, 547);
             this.checkBoxSujet.Name = "checkBoxSujet";
             this.checkBoxSujet.Size = new System.Drawing.Size(50, 17);
             this.checkBoxSujet.TabIndex = 17;
@@ -178,23 +151,41 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(539, 485);
+            this.label1.Location = new System.Drawing.Point(734, 485);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 16);
             this.label1.TabIndex = 18;
             this.label1.Text = "En-tête ";
+            // 
+            // decoButton
+            // 
+            this.decoButton.Location = new System.Drawing.Point(24, 510);
+            this.decoButton.Name = "decoButton";
+            this.decoButton.Size = new System.Drawing.Size(98, 40);
+            this.decoButton.TabIndex = 19;
+            this.decoButton.Text = "DECONNEXION";
+            this.decoButton.UseVisualStyleBackColor = true;
+            this.decoButton.Click += new System.EventHandler(this.decoButton_Click);
+            // 
+            // displayMessage
+            // 
+            this.displayMessage.Location = new System.Drawing.Point(237, 38);
+            this.displayMessage.Name = "displayMessage";
+            this.displayMessage.Size = new System.Drawing.Size(445, 433);
+            this.displayMessage.TabIndex = 20;
+            this.displayMessage.Text = "";
             // 
             // ClientPOP3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1216, 603);
+            this.Controls.Add(this.displayMessage);
+            this.Controls.Add(this.decoButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.checkBoxSujet);
             this.Controls.Add(this.checkBoxExpediteur);
             this.Controls.Add(this.checkBoxDate);
-            this.Controls.Add(this.retrButton);
-            this.Controls.Add(this.numRetr);
             this.Controls.Add(this.buttonLIST);
             this.Controls.Add(this.buttonQUIT);
             this.Controls.Add(this.buttonSTAT);
@@ -205,7 +196,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ClientPOP3";
             this.Text = "ClientPOP3";
-            ((System.ComponentModel.ISupportInitialize)(this.numRetr)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,12 +210,12 @@
         private System.Windows.Forms.Button buttonSTAT;
         private System.Windows.Forms.Button buttonQUIT;
         private System.Windows.Forms.Button buttonLIST;
-        private System.Windows.Forms.NumericUpDown numRetr;
-        private System.Windows.Forms.Button retrButton;
         private System.Windows.Forms.CheckBox checkBoxDate;
         private System.Windows.Forms.CheckBox checkBoxExpediteur;
         private System.Windows.Forms.CheckBox checkBoxSujet;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button decoButton;
+        private System.Windows.Forms.RichTextBox displayMessage;
     }
 }
 

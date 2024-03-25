@@ -11,7 +11,7 @@ namespace ClientPOP3
         public static string nomServeur = "pop.laposte.net";
         public static int port = 995; // port sécurisé SSL
 
-        public static string username = "iutinfo";
-        public static string password = "Iutinfo2022!";
+        public static string username;
+        public static string password;
     }
 }

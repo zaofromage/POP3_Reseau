@@ -14,20 +14,12 @@ namespace ClientPOP3
     public partial class ClientPOP3 : Form
     {
         public ClientPOP3()
-        {
+        { 
             InitializeComponent();
 
-            WriteAffichage("Démarrage du client POP3 - Version 2024 SSL");
+            Opacity = 100;
 
-            /* Connexion au serveur POP3 */
-            Communication.Initialise(this);
-            WriteAffichage("Connecté au serveur - Prêt !");
-
-            /* Identification */
-            Communication.Identification();
-
-            /* envoi STAT pour recuperer nb messages */
-            Communication.Stat();
+            Connexion();
         }
 
         #region Méthodes d'écriture dans les zones d'affichage utilisateur et verbose (debug)
@@ -37,6 +29,12 @@ namespace ClientPOP3
             // permet "l'auto-scroll" : défiler l'affichage de la fenêtre jusqu'à la dernière ligne
             listBoxAffichage.SelectedIndex = listBoxAffichage.Items.Count - 1;
             listBoxAffichage.SelectedIndex = -1;
+        }
+
+        public void WriteMessage(string line)
+        {
+            displayMessage.Text += line + Environment.NewLine;
+
         }
 
         public void WriteVerbose(string line)
@@ -65,11 +63,6 @@ namespace ClientPOP3
             Communication.List();
         }
 
-        private void retrButton_Click(object sender, EventArgs e)
-        {
-            Communication.Retr((int)numRetr.Value, true);
-        }
-
         public bool getCheckBoxExpediteur()
         {
             return checkBoxExpediteur.Checked;
@@ -83,6 +76,40 @@ namespace ClientPOP3
         public bool getCheckBoxSujet()
         {
             return checkBoxSujet.Checked;
+        }
+
+        private void decoButton_Click(object sender, EventArgs e)
+        {
+            Opacity = 0;
+            Connexion();
+        }
+
+        private void Connexion()
+        {
+            Connexion connexion = new Connexion();
+            if (connexion.ShowDialog() == DialogResult.OK)
+            {
+                Preferences.username = connexion.Identifiant;
+                Preferences.password = connexion.MotDePasse;
+            }
+            else
+            {
+                Dispose();
+            }
+
+            /* Connexion au serveur POP3 */
+            Communication.Initialise(this);
+
+            /* Identification */
+            Communication.Identification();
+
+            /* envoi STAT pour recuperer nb messages */
+            Communication.Stat();
+        }
+
+        private void listBoxAffichage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
