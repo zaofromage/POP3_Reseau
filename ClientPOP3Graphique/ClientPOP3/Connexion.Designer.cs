@@ -34,6 +34,7 @@
             this.mdp = new System.Windows.Forms.TextBox();
             this.cancel = new System.Windows.Forms.Button();
             this.valider = new System.Windows.Forms.Button();
+            this.hide = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label3
@@ -67,7 +68,6 @@
             // 
             this.mdp.Location = new System.Drawing.Point(322, 224);
             this.mdp.Name = "mdp";
-            this.mdp.PasswordChar = '*';
             this.mdp.Size = new System.Drawing.Size(222, 20);
             this.mdp.TabIndex = 5;
             // 
@@ -90,13 +90,24 @@
             this.valider.TabIndex = 7;
             this.valider.Text = "Valider";
             this.valider.UseVisualStyleBackColor = true;
-            this.valider.Click += new System.EventHandler(this.valider_Click);
+            // 
+            // hide
+            // 
+            this.hide.AutoSize = true;
+            this.hide.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hide.Location = new System.Drawing.Point(550, 219);
+            this.hide.Name = "hide";
+            this.hide.Size = new System.Drawing.Size(33, 25);
+            this.hide.TabIndex = 8;
+            this.hide.Text = "👁️";
+            this.hide.Click += new System.EventHandler(this.hide_Click);
             // 
             // Connexion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.hide);
             this.Controls.Add(this.valider);
             this.Controls.Add(this.cancel);
             this.Controls.Add(this.mdp);
@@ -117,5 +128,6 @@
         private System.Windows.Forms.TextBox mdp;
         private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.Button valider;
+        private System.Windows.Forms.Label hide;
     }
 }

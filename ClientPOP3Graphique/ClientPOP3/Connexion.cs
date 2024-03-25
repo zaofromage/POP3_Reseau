@@ -12,6 +12,7 @@ namespace ClientPOP3
 {
     public partial class Connexion : Form
     {
+        private bool passHide = true;
         public string Identifiant { get { return identifiant.Text; } }
 
         public string MotDePasse { get { return mdp.Text; } }
@@ -21,9 +22,19 @@ namespace ClientPOP3
             InitializeComponent();
         }
 
-        private void valider_Click(object sender, EventArgs e)
+        private void hide_Click(object sender, EventArgs e)
         {
-
+            passHide = !passHide;
+            if (!passHide)
+            {
+                hide.Font = new Font(hide.Font, FontStyle.Bold);
+                mdp.PasswordChar = '\0';
+            }
+            else
+            {
+                hide.Font = new Font(hide.Font, FontStyle.Regular);
+                mdp.PasswordChar = '*';
+            }
         }
     }
 }

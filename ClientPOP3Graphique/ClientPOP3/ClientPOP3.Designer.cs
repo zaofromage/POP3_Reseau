@@ -98,13 +98,14 @@
             // 
             // buttonQUIT
             // 
+            this.buttonQUIT.BackColor = System.Drawing.SystemColors.ControlDark;
             this.buttonQUIT.Location = new System.Drawing.Point(1098, 510);
             this.buttonQUIT.Margin = new System.Windows.Forms.Padding(2);
             this.buttonQUIT.Name = "buttonQUIT";
             this.buttonQUIT.Size = new System.Drawing.Size(77, 40);
             this.buttonQUIT.TabIndex = 5;
             this.buttonQUIT.Text = "QUIT";
-            this.buttonQUIT.UseVisualStyleBackColor = true;
+            this.buttonQUIT.UseVisualStyleBackColor = false;
             this.buttonQUIT.Click += new System.EventHandler(this.ButtonQUIT_Click);
             // 
             // buttonLIST
@@ -159,12 +160,13 @@
             // 
             // decoButton
             // 
+            this.decoButton.BackColor = System.Drawing.SystemColors.ControlDark;
             this.decoButton.Location = new System.Drawing.Point(24, 510);
             this.decoButton.Name = "decoButton";
             this.decoButton.Size = new System.Drawing.Size(98, 40);
             this.decoButton.TabIndex = 19;
             this.decoButton.Text = "DECONNEXION";
-            this.decoButton.UseVisualStyleBackColor = true;
+            this.decoButton.UseVisualStyleBackColor = false;
             this.decoButton.Click += new System.EventHandler(this.decoButton_Click);
             // 
             // displayMessage
