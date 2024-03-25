@@ -17,8 +17,6 @@ namespace ClientPOP3
         { 
             InitializeComponent();
 
-            Opacity = 100;
-
             Connexion();
         }
 
@@ -105,11 +103,24 @@ namespace ClientPOP3
 
             /* envoi STAT pour recuperer nb messages */
             Communication.Stat();
+
+            Opacity = 100;
+
         }
 
-        private void listBoxAffichage_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBoxAffichage_Click(object sender, EventArgs e)
         {
-            
+            displayMessage.Clear();
+            if (listBoxAffichage.SelectedItems.Count > 0)
+            {
+                string ligne = (string)listBoxAffichage.SelectedItem;
+                if (ligne.Substring(0, 8).Equals("Message "))
+                {
+                    int num = int.Parse(ligne.Substring(8, ligne.Length - 8));
+                    Communication.Retr(num, true);
+                }
+
+            }
         }
     }
 }

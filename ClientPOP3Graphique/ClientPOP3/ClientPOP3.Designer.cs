@@ -51,7 +51,7 @@
             this.listBoxAffichage.Name = "listBoxAffichage";
             this.listBoxAffichage.Size = new System.Drawing.Size(196, 433);
             this.listBoxAffichage.TabIndex = 0;
-            this.listBoxAffichage.SelectedIndexChanged += new System.EventHandler(this.listBoxAffichage_SelectedIndexChanged);
+            this.listBoxAffichage.Click += new System.EventHandler(this.listBoxAffichage_Click);
             // 
             // labelAffichage
             // 

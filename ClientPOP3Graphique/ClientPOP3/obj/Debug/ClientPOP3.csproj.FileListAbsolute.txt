@@ -43,3 +43,4 @@ Z:\Documents\reseau\POP3_Reseau\ClientPOP3Graphique\ClientPOP3\obj\Debug\ClientP
 Z:\Documents\reseau\POP3_Reseau\ClientPOP3Graphique\ClientPOP3\obj\Debug\ClientPOP3.csproj.CoreCompileInputs.cache
 Z:\Documents\reseau\POP3_Reseau\ClientPOP3Graphique\ClientPOP3\obj\Debug\ClientPOP3.exe
 Z:\Documents\reseau\POP3_Reseau\ClientPOP3Graphique\ClientPOP3\obj\Debug\ClientPOP3.pdb
+\\iut.bx\Etudiants\Home\zcapdeville\Documents\reseau\POP3_Reseau\ClientPOP3Graphique\ClientPOP3\obj\Debug\ClientPOP3.Connexion.resources

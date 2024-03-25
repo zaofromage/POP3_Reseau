@@ -20,5 +20,10 @@ namespace ClientPOP3
         {
             InitializeComponent();
         }
+
+        private void valider_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

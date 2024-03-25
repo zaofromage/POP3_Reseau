@@ -222,6 +222,7 @@ namespace ClientPOP3
             }
             else
             {
+                clientPOP3.WriteMessage("----------");
                 clientPOP3.WriteMessage("Message: " + num);
                 ligne = LireLigne();
                 bool enMessage = false;

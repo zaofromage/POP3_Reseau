@@ -62,13 +62,16 @@
             this.identifiant.Name = "identifiant";
             this.identifiant.Size = new System.Drawing.Size(222, 20);
             this.identifiant.TabIndex = 4;
+            this.identifiant.Text = "iutinfo";
             // 
             // mdp
             // 
             this.mdp.Location = new System.Drawing.Point(322, 224);
             this.mdp.Name = "mdp";
+            this.mdp.PasswordChar = '*';
             this.mdp.Size = new System.Drawing.Size(222, 20);
             this.mdp.TabIndex = 5;
+            this.mdp.Text = "Iutinfo2022!";
             // 
             // cancel
             // 
@@ -89,6 +92,7 @@
             this.valider.TabIndex = 7;
             this.valider.Text = "Valider";
             this.valider.UseVisualStyleBackColor = true;
+            this.valider.Click += new System.EventHandler(this.valider_Click);
             // 
             // Connexion
             // 
