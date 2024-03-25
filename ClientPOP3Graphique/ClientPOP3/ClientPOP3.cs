@@ -69,5 +69,20 @@ namespace ClientPOP3
         {
             Communication.Retr((int)numRetr.Value, true);
         }
+
+        public bool getCheckBoxExpediteur()
+        {
+            return checkBoxExpediteur.Checked;
+        }
+
+        public bool getCheckBoxDate()
+        {
+            return checkBoxDate.Checked;
+        }
+
+        public bool getCheckBoxSujet()
+        {
+            return checkBoxSujet.Checked;
+        }
     }
 }

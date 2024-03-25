@@ -37,6 +37,10 @@
             this.buttonLIST = new System.Windows.Forms.Button();
             this.numRetr = new System.Windows.Forms.NumericUpDown();
             this.retrButton = new System.Windows.Forms.Button();
+            this.checkBoxDate = new System.Windows.Forms.CheckBox();
+            this.checkBoxExpediteur = new System.Windows.Forms.CheckBox();
+            this.checkBoxSujet = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numRetr)).BeginInit();
             this.SuspendLayout();
             // 
@@ -140,11 +144,55 @@
             this.retrButton.UseVisualStyleBackColor = true;
             this.retrButton.Click += new System.EventHandler(this.retrButton_Click);
             // 
+            // checkBoxDate
+            // 
+            this.checkBoxDate.AutoSize = true;
+            this.checkBoxDate.Location = new System.Drawing.Point(542, 504);
+            this.checkBoxDate.Name = "checkBoxDate";
+            this.checkBoxDate.Size = new System.Drawing.Size(49, 17);
+            this.checkBoxDate.TabIndex = 15;
+            this.checkBoxDate.Text = "Date";
+            this.checkBoxDate.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxExpediteur
+            // 
+            this.checkBoxExpediteur.AutoSize = true;
+            this.checkBoxExpediteur.Location = new System.Drawing.Point(542, 524);
+            this.checkBoxExpediteur.Name = "checkBoxExpediteur";
+            this.checkBoxExpediteur.Size = new System.Drawing.Size(76, 17);
+            this.checkBoxExpediteur.TabIndex = 16;
+            this.checkBoxExpediteur.Text = "Expediteur";
+            this.checkBoxExpediteur.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxSujet
+            // 
+            this.checkBoxSujet.AutoSize = true;
+            this.checkBoxSujet.Location = new System.Drawing.Point(542, 547);
+            this.checkBoxSujet.Name = "checkBoxSujet";
+            this.checkBoxSujet.Size = new System.Drawing.Size(50, 17);
+            this.checkBoxSujet.TabIndex = 17;
+            this.checkBoxSujet.Text = "Sujet";
+            this.checkBoxSujet.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(539, 485);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 16);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "En-tête ";
+            // 
             // ClientPOP3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1216, 603);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.checkBoxSujet);
+            this.Controls.Add(this.checkBoxExpediteur);
+            this.Controls.Add(this.checkBoxDate);
             this.Controls.Add(this.retrButton);
             this.Controls.Add(this.numRetr);
             this.Controls.Add(this.buttonLIST);
@@ -174,6 +222,10 @@
         private System.Windows.Forms.Button buttonLIST;
         private System.Windows.Forms.NumericUpDown numRetr;
         private System.Windows.Forms.Button retrButton;
+        private System.Windows.Forms.CheckBox checkBoxDate;
+        private System.Windows.Forms.CheckBox checkBoxExpediteur;
+        private System.Windows.Forms.CheckBox checkBoxSujet;
+        private System.Windows.Forms.Label label1;
     }
 }
 

@@ -231,19 +231,19 @@ namespace ClientPOP3
                     bool aEcrire = false;
 
 
-                    if (ligne.Length > 5 && ligne.Substring(0, 5).Equals("From:"))
+                    if (ligne.Length > 5 && ligne.Substring(0, 5).Equals("From:") && clientPOP3.getCheckBoxExpediteur())
                     {
                         ligne = "Expediteur: " + ligne.Substring(6, ligne.Length - 6);
                         aEcrire = true;
                     }
 
-                    if (ligne.Length > 8 && ligne.Substring(0, 8).Equals("Subject:"))
+                    if (ligne.Length > 8 && ligne.Substring(0, 8).Equals("Subject:") && clientPOP3.getCheckBoxSujet())
                     {
                         ligne = "Sujet: " + ligne.Substring(9, ligne.Length - 9);
                         aEcrire = true;
                     }
 
-                    if (ligne.Length > 5 && ligne.Substring(0, 5).Equals("Date:"))
+                    if (ligne.Length > 5 && ligne.Substring(0, 5).Equals("Date:") && clientPOP3.getCheckBoxDate())
                     {
                         ligne = "Ecrit le: " + ligne.Substring(6, ligne.Length - 6);
                         aEcrire = true;
