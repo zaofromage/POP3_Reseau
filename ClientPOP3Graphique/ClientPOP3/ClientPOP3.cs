@@ -58,6 +58,7 @@ namespace ClientPOP3
 
         private void ButtonLIST_Click(object sender, EventArgs e)
         {
+            listBoxAffichage.Items.Clear();
             Communication.List();
         }
 
@@ -92,7 +93,7 @@ namespace ClientPOP3
             }
             else
             {
-                Dispose();
+                Environment.Exit(0);
             }
 
             /* Connexion au serveur POP3 */
@@ -117,7 +118,7 @@ namespace ClientPOP3
                 if (ligne.Substring(0, 8).Equals("Message "))
                 {
                     int num = int.Parse(ligne.Substring(8, ligne.Length - 8));
-                    Communication.Retr(num, true);
+                    Communication.Retr(num);
                 }
 
             }

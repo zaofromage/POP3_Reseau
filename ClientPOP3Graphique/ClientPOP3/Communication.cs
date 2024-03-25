@@ -181,7 +181,6 @@ namespace ClientPOP3
         /* Récupère et affiche la liste des messages */
         public static void List()
         {
-            // *** BLOC A DECOMMENTER  : Ctrl+e puis u  ***
             string ligne, tampon;
             tampon = "LIST";
             EcrireLigne(tampon);
@@ -211,7 +210,7 @@ namespace ClientPOP3
             }
         }
 
-        public static void Retr(int num, bool afficherMessage)
+        public static void Retr(int num)
         {
             string ligne;
             EcrireLigne("RETR " + num);
@@ -261,7 +260,7 @@ namespace ClientPOP3
                         ligne = ligne.Substring(1, ligne.Length - 1);
                     }
 
-                    if(aEcrire || (enMessage && afficherMessage))
+                    if(aEcrire || enMessage)
                         clientPOP3.WriteMessage(ligne);
 
 

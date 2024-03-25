@@ -62,7 +62,6 @@
             this.identifiant.Name = "identifiant";
             this.identifiant.Size = new System.Drawing.Size(222, 20);
             this.identifiant.TabIndex = 4;
-            this.identifiant.Text = "iutinfo";
             // 
             // mdp
             // 
@@ -71,7 +70,6 @@
             this.mdp.PasswordChar = '*';
             this.mdp.Size = new System.Drawing.Size(222, 20);
             this.mdp.TabIndex = 5;
-            this.mdp.Text = "Iutinfo2022!";
             // 
             // cancel
             // 
